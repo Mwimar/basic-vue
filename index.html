@@ -9,15 +9,19 @@
         width: 200px;
         height: 200px;
       }
+      [v-cloak] {
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       {{greeting}}
       <input v-model="greeting" />
+
+      <hr />
+      <div v-if="!isVisible" class="box"></div>
     </div>
-    <hr />
-    <div v-if="isVisible" class="box"></div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -25,7 +29,7 @@
         data: function () {
           return {
             greeting: "Hello Vue!!!!",
-            isVisible: true,
+            isVisible: false,
           };
         },
       });
