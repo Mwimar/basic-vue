@@ -9,6 +9,8 @@
       {{greeting}}
       <input v-model="greeting" />
     </div>
+    <hr />
+    <div v-if="isVisible" class="box"></div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
@@ -16,6 +18,7 @@
         data: function () {
           return {
             greeting: "Hello Vue!!!!",
+            isVisible: true,
           };
         },
       });
