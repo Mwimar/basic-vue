@@ -17,7 +17,7 @@
   <body>
     <div id="app" v-cloak>
       {{greeting}}
-      <input v-model="greeting" />
+      <input @keyup.enter="greet" v-model="greeting" />
 
       <hr />
       <!-- <button v-on:click="isVisible=!isVisible">Toggle Box</button> -->
