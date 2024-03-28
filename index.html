@@ -81,10 +81,15 @@
         template: `
         <label>
           {{label}}
-          <input type="text">
+          <input type="text" v-model="inputValue">
         </label>
         `,
         props: ["label"],
+        data() {
+          return {
+            inputValue: "",
+          };
+        },
       });
       app.mount("#app");
     </script>
