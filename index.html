@@ -63,8 +63,8 @@
         data() {
           return {
             title: "Login Form",
-            email: "fgfgf",
-            password: "hjjhgggg",
+            email: "",
+            password: "",
             emailLabel: "email",
             passwordLabel: "password",
           };
@@ -90,7 +90,9 @@
             get() {
               return this.modelValue;
             },
-            set() {},
+            set(value) {
+              this.$emit("update:modelValue", value);
+            },
           },
         },
         // data() {
