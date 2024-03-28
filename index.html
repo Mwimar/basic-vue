@@ -53,8 +53,8 @@
         template: `
         <form @submit.prevent='handleSubmit'>
           <h1>{{title}}</h1>
-          <custom-input type="email" v-model="email" :label="passwordLabel"/>
-          <custom-input type="password" v-model="password" v-bind:label="emailLabel"/>
+          <custom-input  v-model="email" :label="emailLabel"/>
+          <custom-input  v-model="password" v-bind:label="passwordLabel"/>
           <button>Submit</button>
           </form>
 
@@ -63,8 +63,8 @@
         data() {
           return {
             title: "Login Form",
-            email: "",
-            password: "",
+            email: "fgfgf",
+            password: "hjjhgggg",
             emailLabel: "email",
             passwordLabel: "password",
           };
@@ -84,12 +84,20 @@
           <input type="text" v-model="inputValue">
         </label>
         `,
-        props: ["label"],
-        data() {
-          return {
-            inputValue: "",
-          };
+        props: ["label", "modelValue"],
+        computed: {
+          inputValue: {
+            get() {
+              return this.modelValue;
+            },
+            set() {},
+          },
         },
+        // data() {
+        //   return {
+        //     inputValue: "",
+        //   };
+        // },
       });
       app.mount("#app");
     </script>
