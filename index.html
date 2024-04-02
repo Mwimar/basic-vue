@@ -54,8 +54,14 @@
         <form @submit.prevent='handleSubmit'>
           <h1>{{title}}</h1>
           
-          <custom-input  v-model="email" :label="emailLabel"/>
-          <custom-input  v-model="password" v-bind:label="passwordLabel"/>
+          <custom-input  
+          v-for="(input, i) in inputs"
+          :key="i"
+          v-model="input.value" 
+          :label="input.Label"
+          :input="input.type"
+          />
+         
           <button>Submit</button>
           </form>
 
@@ -64,11 +70,18 @@
         data() {
           return {
             title: "Login Form",
-            inputs: ["email", "password", "name"],
-            email: "",
-            password: "",
-            emailLabel: "email",
-            passwordLabel: "password",
+            inputs: [
+              {
+                label: "email",
+                value: "",
+                type: "email",
+              },
+              {
+                label: "password",
+                value: "",
+                type: "password",
+              },
+            ],
           };
         },
         methods: {
@@ -83,10 +96,10 @@
         template: `
         <label>
           {{label}}
-          <input type="text" v-model="inputValue">
+          <input :type="type" v-model="inputValue">
         </label>
         `,
-        props: ["label", "modelValue"],
+        props: ["label", "type", "modelValue"],
         computed: {
           inputValue: {
             get() {
