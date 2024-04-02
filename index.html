@@ -58,8 +58,8 @@
           v-for="(input, i) in inputs"
           :key="i"
           v-model="input.value" 
-          :label="input.Label"
-          :input="input.type"
+          :label="input.label"
+          :type="input.type"
           />
          
           <button>Submit</button>
@@ -72,12 +72,12 @@
             title: "Login Form",
             inputs: [
               {
-                label: "email",
+                label: "Email",
                 value: "",
                 type: "email",
               },
               {
-                label: "password",
+                label: "Password",
                 value: "",
                 type: "password",
               },
@@ -87,7 +87,7 @@
         methods: {
           handleSubmit() {
             // e.preventDefault() preventing default behavior
-            console.log(this.email, this.password);
+            console.log(this.inputs[0].value, this.inputs[1].value);
           },
         },
       });
