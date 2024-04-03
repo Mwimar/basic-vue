@@ -36,11 +36,15 @@
         <div> class="box"></div>
 
         `,
-        created(){
-
-        }.
-        mounted(){},
-        unmounted(){}
+        created() {
+          console.log("created");
+        },
+        mounted() {
+          console.log("mounted");
+        },
+        unmounted() {
+          console.log("unmounted");
+        },
       });
       app.mount("#app");
     </script>
