@@ -9,22 +9,12 @@
         width: 200px;
         height: 200px;
       }
-
-      [v-cloak] {
-        display: none;
-      }
-
-      input {
-        margin: 10px;
-        display: block;
-      }
     </style>
   </head>
   <body>
-    <div id="app" v-cloak>
-     
-      <button @click.left="toggleBox">Toggle Box</button>
-      <></div>
+    <div id="app">
+      <button @click="toggleBox">Toggle Box</button>
+      <test-box v-if="isVisible" />
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -32,12 +22,11 @@
       let app = Vue.createApp({
         data: function () {
           return {
-            greeting: "Hello Vue!!!!",
             isVisible: false,
           };
         },
         methods: {
-          toggleBox() {
+          toggleBox: function () {
             this.isVisible = !this.isVisible;
           },
         },
@@ -47,6 +36,11 @@
         <div> class="box"></div>
 
         `,
+        created(){
+
+        }.
+        mounted(){},
+        unmounted(){}
       });
       app.mount("#app");
     </script>
