@@ -30,10 +30,13 @@
             this.isVisible = !this.isVisible;
           },
         },
+        updated() {
+          console.log("updated");
+        },
       });
       app.component("test-box", {
         template: `
-        <div> class="box"></div>
+        <div class="box"></div>
 
         `,
         created() {
